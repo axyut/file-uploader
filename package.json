@@ -5,7 +5,7 @@
 	"main": "app.js",
 	"scripts": {
 		"dev": "nodemon app.js",
-		"start": "concurrently -n \" Client, Server \" -c \"bgGreen.bold,bgMagenta.bold\" \"cd client && npm run dev \" \" npm run dev \"",
+		"start": "concurrently -n \" Client, Server \" -c \"bgGreen.bold,bgBlack.bold\" \"cd client && npm run dev \" \" npm run dev \"",
 		"test": "jest"
 	},
 	"author": "ak",
@@ -23,6 +23,7 @@
 		"xss-clean": "^0.1.1"
 	},
 	"devDependencies": {
+		"jest": "^29.5.0",
 		"nodemon": "^2.0.22"
 	}
 }
