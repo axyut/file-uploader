@@ -1,0 +1,21 @@
+{
+	"name": "file_uploader",
+	"version": "1.0.0",
+	"description": "App that store user files",
+	"main": "app.js",
+	"scripts": {
+		"dev": "nodemon app.js",
+		"start": "concurrently -n \" Client, Server \" -c \"bgGreen.bold,bgMagenta.bold\" \"cd client && npm run dev \" \" npm run dev \"",
+		"test": "jest"
+	},
+	"author": "ak",
+	"license": "MIT",
+	"dependencies": {
+		"concurrently": "^8.0.1",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.22"
+	}
+}
