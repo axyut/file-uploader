@@ -26,19 +26,10 @@ const App = () => {
 					theme="dark"
 				></ToastContainer>
 				<Routes>
-					<Route
-						exact
-						path="/login"
-						element={<Login></Login>}
-					></Route>
-					<Route
-						exact
-						path="/signUp"
-						element={<SignUp></SignUp>}
-					></Route>
+					<Route path="/login" element={<Login></Login>}></Route>
+					<Route path="/signUp" element={<SignUp></SignUp>}></Route>
 
 					<Route
-						exact
 						path="/home"
 						element={
 							<ProtectedRoute>
@@ -49,7 +40,6 @@ const App = () => {
 
 					{/* Default page active todos */}
 					<Route
-						exact
 						path="/"
 						element={
 							<ProtectedRoute>

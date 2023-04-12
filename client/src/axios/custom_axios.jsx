@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const custom_axios = axios.create({
+const AXIOS = axios.create({
 	// with vite import env vars with import.meta.env
 	baseURL: import.meta.env.VITE_BACKEND,
 	headers: {
@@ -10,4 +10,4 @@ const custom_axios = axios.create({
 	//timeout: 5000, // 5 seconds
 });
 
-export default custom_axios;
+export default AXIOS;

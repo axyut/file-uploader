@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import custom_axios from "../axios/custom_axios";
-import { ApiConstants } from "../api/api_constants";
+import AXIOS from "../axios/custom_axios";
+import { API } from "../api/api_constants";
 import { getLoginInfo } from "../utils/LoginInfo";
 
 import "../css/login_signup.css";
@@ -25,13 +25,13 @@ const Login = () => {
 			return;
 		}
 		try {
-			const response = await custom_axios.post(ApiConstants.CV.LOGIN, {
-				email: email,
-				password: password,
+			const response = await AXIOS.post(API.AUTH.LOGIN, {
+				email,
+				password,
 			});
 
 			// Setting Up recieved token for the user
-			console.log(response);
+			//console.log(response);
 
 			localStorage.setItem("token", response.data.token);
 			dispatchEvent(new Event("storage"));

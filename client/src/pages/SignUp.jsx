@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import custom_axios from "../axios/custom_axios";
-import { ApiConstants } from "../api/api_constants";
+import AXIOS from "../axios/custom_axios";
+import { API } from "../api/api_constants";
 import { useState } from "react";
 
 import "../css/login_signup.css";
@@ -30,7 +30,7 @@ const SignUp = () => {
 		}
 
 		try {
-			const response = await custom_axios.post(ApiConstants.CV.REGISTER, {
+			const response = await AXIOS.post(API.AUTH.REGISTER, {
 				firstName,
 				lastName,
 				email,

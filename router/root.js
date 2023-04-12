@@ -10,11 +10,13 @@ router.get("/", (req, res) => {
 	res.json({
 		msg: "Welcome",
 		routes: {
-			home: "/",
+			server: "/",
+			client: "http://127.0.0.1:5000/",
 			api: {
 				auth: {
-					register: "/api/auth/register",
-					login: "/api/auth/login",
+					POST_register: "/api/auth/register",
+					POST_login: "/api/auth/login",
+					GET_delete: "/api/auth/delete",
 				},
 			},
 		},
