@@ -15,7 +15,7 @@ const verifyJWT = async (req, res) => {
 		const user = jwt.verify(token, process.env.JWT_SECRET);
 
 		const userFound = await User.findOne({
-			_id: user.userId,
+			uuid: user.uuid,
 			email: user.email,
 			"tokens.token": token,
 		}).select("uuid email -_id ");
@@ -24,11 +24,17 @@ const verifyJWT = async (req, res) => {
 			throw new NotFoundError("User not found.");
 		}
 		console.log("User checked!");
-		res.status(Code.ACCEPTED).json({ msg: "Valid User!", user: userFound });
+		res.status(Code.ACCEPTED).json({ userFound });
 	} catch (error) {
-		if (error.message == "jwt expired") {
-			res.status(Code.GATEWAY_TIMEOUT).json({ msg: error.message });
-			console.log(error);
+		if (
+			error.message ||
+			error.name == "jwt expired" ||
+			"TokenExpiredError"
+		) {
+			res.status(Code.GATEWAY_TIMEOUT).json({
+				msg: error.name + " :" + error.message,
+			});
+			console.log(error.name + " :" + error.message);
 		} else {
 			res.status(Code.BAD_REQUEST).json({ msg: "Unauthorized Access." });
 			console.log(error);

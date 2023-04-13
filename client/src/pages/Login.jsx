@@ -36,16 +36,15 @@ const Login = () => {
 			localStorage.setItem("token", response.data.token);
 			dispatchEvent(new Event("storage"));
 
-			// Welcoming User by decoding token
 			const firstName = getLoginInfo()?.firstName;
-			toast.info(`Welcome Back! ${firstName}`);
-			toast.info(response.data.message);
+			toast.success(`Welcome Back! ${firstName}`);
+
 			navigate("/");
 		} catch (error) {
 			localStorage.removeItem("token");
 			console.log(error);
 
-			toast.warn("Login Failed");
+			toast.warn(response.data.message || "Login Failed");
 		}
 	};
 	return (

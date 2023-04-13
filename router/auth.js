@@ -8,6 +8,8 @@ const verifyJWT = require("../authentication/verify");
 router.post("/register", register);
 router.post("/login", login);
 router.get("/delete", deleteAll);
+
+// accessed by protected route
 router.get("/jwt", verifyJWT);
 
 module.exports = router;

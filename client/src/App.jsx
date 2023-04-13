@@ -8,6 +8,7 @@ import SignUp from "./pages/SignUp";
 import ProtectedRoute from "./protectedRoute";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
+import User from "./pages/User";
 
 const App = () => {
 	return (
@@ -38,7 +39,6 @@ const App = () => {
 						}
 					/>
 
-					{/* Default page active todos */}
 					<Route
 						path="/"
 						element={
@@ -47,6 +47,14 @@ const App = () => {
 							</ProtectedRoute>
 						}
 					></Route>
+					<Route
+						path="/user"
+						element={
+							<ProtectedRoute>
+								<User />
+							</ProtectedRoute>
+						}
+					/>
 					<Route path="*" element={<ErrorPage />}></Route>
 				</Routes>
 			</BrowserRouter>

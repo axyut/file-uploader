@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema(
 		lastName: {
 			type: String,
 			tirm: true,
-			minlength: 2,
+
 			maxlength: 20,
 		},
 		email: {
@@ -47,7 +47,6 @@ const userSchema = new mongoose.Schema(
 			type: String,
 			required: [true, "Password is required"],
 			tirm: true,
-			minlength: 32,
 		},
 		role: {
 			type: String,
@@ -78,7 +77,7 @@ userSchema.methods.createToken = async function () {
 	try {
 		let sendToken = jwt.sign(
 			{
-				userId: this._id,
+				uuid: this.uuid,
 				firstName: this.firstName,
 				lastName: this.lastName,
 				email: this.email,
