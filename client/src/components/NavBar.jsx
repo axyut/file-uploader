@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { getLoginInfo } from "../utils/LoginInfo";
 
 import "../css/navbar.css";
 
@@ -21,10 +22,11 @@ const NavigationBar = () => {
 
 	return (
 		<nav className={`navbar ${isMobile ? "navbar-mobile" : ""}`}>
-			<div className="navbar-logo">
+			<div className="navbar-logo" onClick={handleMenu}>
 				<Link to="/">
-					<h3>Logo</h3>
+					<h3>{getLoginInfo()?.firstName}</h3>
 				</Link>
+				<div className="navbar-mobile-icon">{isMobile ? "✕" : "▥"}</div>
 			</div>
 			<ul className={`navbar-links ${isMobile ? "active" : ""}`}>
 				<li className="navbar-item">
@@ -45,9 +47,6 @@ const NavigationBar = () => {
 					</Link>
 				</li>
 			</ul>
-			<div className="navbar-mobile-icon" onClick={handleMenu}>
-				{isMobile ? "Mobile" : "PC"}
-			</div>
 		</nav>
 	);
 };

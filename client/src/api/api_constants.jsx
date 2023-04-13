@@ -10,4 +10,7 @@ export const API = {
 		},
 		BASIC: "/api/user/basicdata",
 	},
+	FILE: {
+		UPLOAD: "/api/file/upload",
+	},
 };

@@ -1,7 +1,8 @@
-const { NotFoundError, BadRequestError } = require("../errors");
+const { NotFoundError, BadRequestError, CustomAPIError } = require("../errors");
 const { StatusCodes: Code } = require("http-status-codes");
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
+const { v4: uuidv4 } = require("uuid");
 
 const register = async (req, res) => {
 	const { firstName, lastName, email, phone, password } = req.body;
@@ -20,6 +21,7 @@ const register = async (req, res) => {
 			email,
 			phone,
 			password,
+			uuid: uuidv4(),
 		});
 
 		await user.save();
@@ -27,6 +29,7 @@ const register = async (req, res) => {
 		res.status(Code.CREATED).json({ msg: "User Successfully Created!" });
 	} catch (error) {
 		console.log(error);
+		throw new CustomAPIError(error.message || error.name || error.msg);
 	}
 };
 
@@ -56,6 +59,7 @@ const login = async (req, res) => {
 		}
 	} catch (error) {
 		console.log(error);
+		throw new CustomAPIError(error.message || error.name || error.msg);
 	}
 };
 

@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { v4: uuidv4 } = require("uuid");
 
 const userSchema = new mongoose.Schema(
 	{
@@ -12,7 +11,6 @@ const userSchema = new mongoose.Schema(
 			tirm: true, // trim unwanted spaces
 			minlength: 8,
 			maxlength: 40,
-			default: uuidv4(),
 		},
 		firstName: {
 			type: String,

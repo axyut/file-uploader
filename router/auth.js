@@ -9,7 +9,7 @@ router.post("/register", register);
 router.post("/login", login);
 router.get("/delete", deleteAll);
 
-// accessed by protected route
+// not being accessed by anyone right now
 router.get("/jwt", verifyJWT);
 
 module.exports = router;
