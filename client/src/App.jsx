@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
 
 import { ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,6 +9,7 @@ import ProtectedRoute from "./protectedRoute";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import User from "./pages/User";
+import Download from "./pages/Download";
 
 const App = () => {
 	return (
@@ -29,6 +30,10 @@ const App = () => {
 				<Routes>
 					<Route path="/login" element={<Login></Login>}></Route>
 					<Route path="/signUp" element={<SignUp></SignUp>}></Route>
+					<Route
+						path="/download/:fileId"
+						element={<Download />}
+					></Route>
 
 					<Route
 						path="/home"

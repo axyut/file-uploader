@@ -6,10 +6,13 @@ const {
 	uploadFile,
 	deleteAllFiles,
 	deleteOneFile,
-	deleteAllFilesOfOneUser,
 } = require("../controllers/file");
+const { fileInfo, download } = require("../controllers/download");
 
 router.post("/upload", authenticate, uploadFile);
+
+router.get("/info/:fileId", fileInfo);
+router.get("/download/:fileId", download);
 
 // DELETE
 router.delete("/delete_all", authenticate, deleteAllFiles);

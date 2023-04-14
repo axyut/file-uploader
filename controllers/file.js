@@ -43,12 +43,11 @@ const uploadFile = async (req, res) => {
 				userId,
 			});
 			const response = await file.save();
-			console.log({
-				file: `${process.env.CLIENT_URL}/files/${response.fileId}`,
-			});
+
 			res.status(Code.CREATED).json({
 				msg: "Sucessfully Uploaded to Server!",
-				file: `${process.env.CLIENT_URL}/files/${response.fileId}`,
+				file: `${process.env.CLIENT_URL}/download/${response.fileId}`,
+				fileId: response.fileId,
 			});
 		});
 	} catch (error) {

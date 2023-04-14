@@ -18,18 +18,20 @@ router.get("/", (req, res) => {
 			client: "http://127.0.0.1:5000/",
 			api: {
 				auth: {
-					POST_register: "/api/auth/register",
-					POST_login: "/api/auth/login",
-					GET_delete: "/api/auth/delete",
+					POST__register: "/api/auth/register",
+					POST__login: "/api/auth/login",
 				},
 				user: {
-					GET_basicdata: "/api/user/basicdata",
-					DELETE_USER: "/api/user/del",
+					GET__AUTH__basicdata: "/api/user/basicdata",
+					DELETE__AUTH__user: "/api/user/del",
+					GET__AUTH__deleteAllUser: "/api/auth/delete",
 				},
 				file: {
-					POST_uploadfile: "/api/file/upload",
-					DELETE_DELETE_EVERYTHING: "/api/file/delete_all",
-					DELETE_ONE_FILE: "/api/file/:fileId",
+					POST__AUTH__uploadfile: "/api/file/upload",
+					DELETE__AUTH__everyFile: "/api/file/delete_all",
+					DELETE__AUTH__oneFile: "/api/file/:fileId",
+					GET_fileInfo: "/api/file/info/:fileId",
+					GET_download: "/api/file/download/:fileId",
 				},
 			},
 		},

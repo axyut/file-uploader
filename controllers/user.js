@@ -31,4 +31,9 @@ const deleteUser = async (req, res) => {
 	}
 };
 
-module.exports = { userInfo, deleteUser };
+const deleteAll = async (req, res) => {
+	await User.deleteMany();
+	res.status(Code.GONE).json({ msg: "All Users Deleted Successfully!" });
+};
+
+module.exports = { userInfo, deleteUser, deleteAll };

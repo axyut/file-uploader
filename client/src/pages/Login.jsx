@@ -30,9 +30,6 @@ const Login = () => {
 				password,
 			});
 
-			// Setting Up recieved token for the user
-			//console.log(response);
-
 			localStorage.setItem("token", response.data.token);
 			dispatchEvent(new Event("storage"));
 
@@ -44,7 +41,9 @@ const Login = () => {
 			localStorage.removeItem("token");
 			console.log(error);
 
-			toast.warn(response.data.message || "Login Failed");
+			toast.warn(
+				error.response.data.msg || error.message || "Login Failed"
+			);
 		}
 	};
 	return (

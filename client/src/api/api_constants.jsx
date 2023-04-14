@@ -12,5 +12,11 @@ export const API = {
 	},
 	FILE: {
 		UPLOAD: "/api/file/upload",
+		INFO: (fileId) => {
+			return "/api/file/info/" + fileId;
+		},
+		DOWNLOAD: (fileId) => {
+			return "/api/file/download/" + fileId;
+		},
 	},
 };

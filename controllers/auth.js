@@ -54,7 +54,6 @@ const login = async (req, res) => {
 					token,
 				});
 			}
-		} else {
 			throw new NotFoundError("Invalid Credentials");
 		}
 	} catch (error) {
@@ -63,9 +62,4 @@ const login = async (req, res) => {
 	}
 };
 
-const deleteAll = async (req, res) => {
-	await User.deleteMany();
-	res.status(Code.GONE).json({ msg: "All Users Deleted Successfully!" });
-};
-
-module.exports = { login, register, deleteAll };
+module.exports = { login, register };

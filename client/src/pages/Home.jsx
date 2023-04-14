@@ -55,7 +55,7 @@ const Home = () => {
 			});
 			toast.success(data.msg);
 			setFile(null);
-			setMessage(data.file);
+			setMessage(data.fileId);
 		} catch (error) {
 			console.log(error);
 			toast.error(error.name + ": " + error.message);
@@ -96,13 +96,21 @@ const Home = () => {
 
 						<button type="submit">Submit</button>
 					</form>
-					<a>{message && <div>{message}</div>}</a>
+					<a href={`/download/${message}`}>
+						{message && (
+							<button className="active-btn">
+								<label>Link</label>
+							</button>
+						)}
+					</a>
 				</div>
 
-				<h2>{userData.firstName}</h2>
-				<h2>{userData.lastName}</h2>
-				<h2>{userData.uuid}</h2>
-				<h2>{userData.email}</h2>
+				<h3>
+					User: {userData.firstName} {userData.lastName}
+				</h3>
+
+				<h3>User Id: {userData.uuid}</h3>
+				<h3>Email: {userData.email}</h3>
 			</div>
 		</>
 	);
