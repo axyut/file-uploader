@@ -54,3 +54,6 @@ To get a local copy up and running follow these simple example steps.
    npm start
    npm run dev
 ```
+
+## API
+![api](./assets/api.png)
